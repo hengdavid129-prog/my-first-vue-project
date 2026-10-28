@@ -1,4 +1,28 @@
 <script setup>
+// import flash from '@/mixins/flash';
+import { useFlash } from '@/composables/useFlash';
+
+// export default {
+//   // mixins: [flash]
+//   setup() {
+//     let { flash } = useFlash();
+
+//     return { flash }
+//   }
+// }
+
+let { flash } = useFlash();
+</script>
+
+<template>
+  <main>
+    <p>
+      <button @click="flash('Test', 'It Works!')">Click Me</button>
+    </p>
+  </main>
+</template>
+
+<!-- <script setup>
   import TheWelcome from '@/components/TheWelcome.vue';
   import { ref } from 'vue';
 
@@ -12,7 +36,7 @@
     alert('doing it now');
   };
 
-</script>
+</script> -->
 
 <!-- <script setup>
 import TheWelcome from '../components/TheWelcome.vue'
@@ -49,14 +73,14 @@ import TheWelcome from '../components/TheWelcome.vue'
   }
 </script> -->
 
-<template>
-  <main>
-    <TheWelcome />
+<!-- <template> -->
+  <!-- <main> -->
+    <!-- <TheWelcome /> -->
 
-    <p>{{ message }}</p>
-    <p>
+    <!-- <p>{{ message }}</p> -->
+    <!-- <p> -->
       <!-- <input type="text" v-model="message"> -->
-      <button @click="doSomething">Click Me</button>
-    </p>
-  </main>
-</template>
+      <!-- <button @click="doSomething">Click Me</button> -->
+    <!-- </p> -->
+  <!-- </main> -->
+<!-- </template> -->
