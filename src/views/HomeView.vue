@@ -1,4 +1,14 @@
 <script setup>
+import Quiz from '@/components/Quiz/Quiz.vue';
+</script>
+
+<template>
+  <main>
+    <Quiz :quiz="{ name: 'My First Quiz', questions: [] }" />
+  </main>
+</template>
+
+<!-- <script setup>
 import TabbableTextarea from '@/components/TabbableTextarea.vue'
 import { ref } from 'vue'
 
@@ -15,7 +25,7 @@ setTimeout(() => {
       <TabbableTextarea v-model="comment" style="width: 100%; height: 300px" />
     </form>
   </main>
-</template>
+</template> -->
 
 <!-- <script setup>
 
