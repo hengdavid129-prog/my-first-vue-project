@@ -1,13 +1,41 @@
 <script setup>
-import team from "@/team.json";
+// import team from "@/team.json";
 import TeamHeader from '@/components/Teams/TeamHeader.vue';
 import TeamMembers from '@/components/Teams/TeamMembers.vue';
 import TeamFooter from "@/components/Teams/TeamFooter.vue";
+import { useTeamStore } from "@/stores/TeamStore";
+
+let team = useTeamStore();
+
+setTimeout(() => {
+    team.grow(25);
+}, 2000);
+
+team.fill();
 </script>
 
 <template>
+    <TeamHeader />
+
+    <div class="place-self-center flex flex-col gap-y-3" style="width: 725px;">
+        <TeamMembers />
+    </div>
+
+    <TeamFooter />
+</template>
+
+<!-- <template>
     <TeamHeader :team="team" />
-    <!-- <header class="flex justify-between">
+
+    <div class="place-self-center flex flex-col gap-y-3" style="width: 725px;">
+        <TeamMembers :team="team" />
+    </div>
+
+    <TeamFooter :team="team" />
+</template> -->
+<!-- <template>
+    
+    <header class="flex justify-between">
         <div>
             <button class="bg-green-500 hover:bg-green-600 text-white px-4 py-2 rounded disabled:bg-gray-400"
                     :disabled="team.members.length === team.spots">Add Member ({{ team.spots - team.members.length }} Spots Left)</button>
@@ -20,11 +48,10 @@ import TeamFooter from "@/components/Teams/TeamFooter.vue";
                 <div class="bg-green-400 w-5 h-5 text-xs text-white rounded-full flex justify-center items-center absolute -right-4 -top-2">{{ team.spots }}</div>
             </h3>
         </div>
-    </header> -->
+    </header>
 
-    <div class="place-self-center flex flex-col gap-y-3" style="width: 725px;">
-        <TeamMembers :team="team" />
-        <!-- <table class="table-fixed border-spacing-2 border-separate">
+    
+        <table class="table-fixed border-spacing-2 border-separate">
             <thead>
                 <th class="text-left px-6 py-2">Name</th>
                 <th class="text-left px-6 py-2">Email</th>
@@ -97,12 +124,9 @@ import TeamFooter from "@/components/Teams/TeamFooter.vue";
                     </td>
                 </tr>
             </tbody>
-        </table> -->
+        </table>
 
-    </div>
-
-    <TeamFooter :team="team" />
-    <!-- <footer class="mt-12 bg-gray-100 py-4 text-center">
+    <footer class="mt-12 bg-gray-100 py-4 text-center">
         <h5 class="font-semibold text-lg">{{team.name}} - {{ team.spots }} Member Team</h5>
-    </footer> -->
-</template>
+    </footer>
+</template> -->
